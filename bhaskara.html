@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inner</title>
+    <script>
+      function click_calcular() {
+        let valorA = document.getElementById("txtValorA").value;
+        let valorB = document.getElementById("txtValorB").value;
+        let valorC = document.getElementById("txtValorC").value;
+        if (valorA <= 0) {
+          alert("conta impossível");
+        } else {
+          let delta = (valorB * valorB )- (4 * valorA * valorC);
+
+          if (delta <= 0) {
+            alert("conta impossível");
+          } else {
+            let xI = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+            let xII = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+            document.getElementById("resultado").innerHTML = `<h1>${xI} ; ${xII}</h1>`;
+          }
+        }
+      }
+      function click_limpar() {
+      document.getElementById("txtValorA").value = "";
+      document.getElementById("txtValorB").value = "";
+      document.getElementById("txtValorC").value = "";
+      document.getElementById("resultado").innerHTML = "";
+      
+    }
+    </script>
+  </head>
+  <body>
+    <h1 id="tit">Calculadora de Bhaskara</h1>
+    <form>
+      <div>
+        <label for="txtValorA">Valor A</label>
+        <input type="number" name="" id="txtValorA" value="1" />
+      </div>
+      <div>
+        <label for="txtValorB">Valor B</label>
+        <input type="number" name="" id="txtValorB" />
+      </div>
+      <div>
+        <label for="txtValorC">Valor C</label>
+        <input type="number" name="" id="txtValorC" />
+      </div>
+      <div id="resultado"></div>
+      <div>
+        <input type="button" value="Calcular" onclick="click_calcular();" />
+
+        <input type="button" value="Limpar" onclick="click_limpar();" />
+      </div>
+    </form>
+  </body>
+</html>
